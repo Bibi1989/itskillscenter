@@ -18,7 +18,6 @@ const validateUser_1 = require("../validation/validateUser");
 const db = require("../../database/models");
 const { User, Project, Task } = db;
 exports.registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("req.body === ", req.body);
     const { value, error } = validateUser_1.validateUserRegister(req.body);
     if (error.username)
         return res.status(400).json({ status: "error", error: error.username });

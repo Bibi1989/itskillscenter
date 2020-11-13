@@ -12,7 +12,6 @@ const db = require("../../database/models");
 const { User, Project, Task } = db;
 
 export const registerUser = async (req: Request, res: Response) => {
-  console.log("req.body === ", req.body)
 
   const { value, error } = validateUserRegister(req.body);
 
