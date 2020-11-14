@@ -7,15 +7,15 @@ const validateEmail = (email) => {
 exports.validateUserRegister = (value) => {
     const { username, email, password } = value;
     const error = {};
+    const isEmailValid = validateEmail(email);
+    if (!isEmailValid) {
+        error.email = "This is not a valid mail";
+    }
     if (!username) {
-        error.username = "First nane field is empty";
+        error.username = "Username field is empty";
     }
     if (!email) {
         error.email = "Email field is empty";
-        const isEmailValid = validateEmail(email);
-        if (!isEmailValid) {
-            error.email = "This is not a valid mail";
-        }
     }
     if (!password) {
         error.password = "Password field is empty";
@@ -24,7 +24,11 @@ exports.validateUserRegister = (value) => {
 };
 exports.validateUserLogin = (value) => {
     const { email, password } = value;
+    const isEmailValid = validateEmail(email);
     const error = {};
+    if (!isEmailValid) {
+        error.email = "This is not a valid mail";
+    }
     if (!email) {
         error.email = "Email field is empty";
     }

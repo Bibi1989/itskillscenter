@@ -43,6 +43,7 @@ exports.registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function*
 });
 exports.loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { value, error } = validateUser_1.validateUserLogin(req.body);
+    console.log({ value, error });
     if (error.email)
         return res.status(400).json({ status: "error", error: error.email });
     if (error.password)
